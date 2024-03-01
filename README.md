@@ -1,5 +1,46 @@
 # React TypeScript Project Documentation
 
+# Setting up "ecommerce" Project Locally
+
+Follow these steps to set up the "ecommerce" project locally on your machine:
+
+## Prerequisites
+
+- Node.js and npm installed on your machine
+
+## Instructions
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository_url>
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd ecommerce
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and visit http://localhost:5173 to view the project.
+
+## Deployed on vercel
+
+[BrandStore](https://ms-brandstore.vercel.app "Brand Store")
+
 ## Folder Structure
 
 - **assets:** This folder contains static assets such as images, fonts, or any other resources used in the project.
@@ -25,11 +66,14 @@
 
 - **Enhanced Performance:** Efforts have been made to optimize the performance of the application, ensuring smooth interactions and fast loading times.
 
+![Cat](./public/Screenshot%20from%202024-03-01%2014-39-02.png)
+![Cat](./public/Screenshot%20from%202024-03-01%2014-39-12.png)
+
+[Performance](https://pagespeed.web.dev/analysis/https-ms-brandstore-vercel-app/u2jyuparpx?form_factor=mobile "Check the performance")
+
 ## Tools Used and Reasons
 
 - **Axios:** Axios is a popular HTTP client for making asynchronous HTTP requests in JavaScript and TypeScript. It provides a simple API and features such as interceptors and response transformations, making it suitable for handling API requests efficiently.
-
-- **React:** React is a JavaScript library for building user interfaces. Its component-based architecture and virtual DOM enable developers to create reusable and declarative UI components, facilitating efficient development and maintenance of complex applications.
 
 - **React-DOM:** React-DOM is a package that provides methods for interacting with the DOM (Document Object Model) in React applications. It is used to render React components into the browser DOM.
 
