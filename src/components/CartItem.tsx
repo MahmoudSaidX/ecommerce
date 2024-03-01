@@ -6,6 +6,7 @@ import {
   updateCartItemQuantity,
 } from "../services/state/slices/productSlice";
 import { useState } from "react";
+import { formatCurrency } from "../utils/formatCurrency";
 
 interface CartItemProps extends Product {
   id: number;
@@ -57,17 +58,20 @@ const CartItem: React.FC<CartItemProps> = ({
             <h3>
               <Link to={`product/${id}`}>{title}</Link>
             </h3>
-            <p className="ml-4">{"$" + price}</p>
+            <p className="ml-4">{`${formatCurrency(price)}`}</p>
           </div>
           <p className="mt-1 text-sm text-gray-500">{category}</p>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
-          <p className="text-gray-500 flex flex-row gap-2">
-            <span className="cursor-pointer" onClick={increaseCount}>
+          <p className="text-gray-500 flex flex-row items-center select-none gap-2">
+            <span className="cursor-pointer text-xl" onClick={increaseCount}>
               +
             </span>
             <span>{count}</span>
-            <span className="cursor-pointer" onClick={decreaseCount}>
+            <span
+              className="cursor-pointer text-xl select-none"
+              onClick={decreaseCount}
+            >
               -
             </span>
           </p>

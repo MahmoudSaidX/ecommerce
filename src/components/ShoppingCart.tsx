@@ -7,6 +7,7 @@ import { RootState } from "../services/state/store";
 import { Link } from "react-router-dom";
 import { closetoggleCart } from "../services/state/slices/toggleCartSlice";
 import { CiBookmarkPlus } from "react-icons/ci";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const ShoppingCart = ({ open, setOpen }: any) => {
   const cart = useSelector((state: RootState) => state.product.cart);
@@ -90,7 +91,7 @@ const ShoppingCart = ({ open, setOpen }: any) => {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>${totalPrice}</p>
+                        <p>{`${formatCurrency(totalPrice)}`}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.

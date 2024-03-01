@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
@@ -16,6 +16,7 @@ import ProductImage from "../components/ProductImage";
 
 const ProductDetailsScreen = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   const {
     data: productData,
@@ -37,6 +38,9 @@ const ProductDetailsScreen = () => {
   };
 
   useEffect(() => {
+    if (Number(id) > 20) {
+      navigate("/404");
+    }
     const url = `https://fakestoreapi.com/products/${id}`;
     fetchData(url);
   }, [id]);

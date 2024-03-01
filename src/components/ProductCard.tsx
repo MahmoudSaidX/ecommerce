@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Product } from "../services/api/useAllProductsFetch";
 import { useState } from "react";
+import { formatCurrency } from "../utils/formatCurrency";
 
 type ProductCardProps = Omit<Product, "description">;
 
@@ -39,7 +40,9 @@ const ProductCard = ({
             {title}
           </p>
           <p className="text-sm font-medium capitalize">{category}</p>
-          <span className="text-gray-700 font-bold">{"$" + price}</span>
+          <span className="text-gray-700 font-bold">
+            {`${formatCurrency(price)}`}
+          </span>
         </div>
       </article>
     </Link>
