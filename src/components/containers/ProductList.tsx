@@ -28,6 +28,16 @@ const ProductList: React.FC = () => {
     }
   }, [data, productSearch]);
 
+  useEffect(() => {
+    // Preload images
+    if (filteredProducts.length > 0) {
+      filteredProducts.forEach((product) => {
+        const img = new Image();
+        img.src = product.image;
+      });
+    }
+  }, [filteredProducts]);
+
   return (
     <section className="flex flex-row gap-x-2 gap-y-3 flex-wrap">
       {isLoading ? (
@@ -38,7 +48,9 @@ const ProductList: React.FC = () => {
         </div>
       ) : (
         filteredProducts.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <React.Fragment key={product.id}>
+            <ProductCard {...product} />
+          </React.Fragment>
         ))
       )}
     </section>
