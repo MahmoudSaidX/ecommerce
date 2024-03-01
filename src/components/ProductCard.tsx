@@ -23,7 +23,7 @@ const ProductCard = ({
 
   return (
     <Link to={`product/${id}`}>
-      <article className="w-[43vw] sm:w-[20vw] h-full p-4 shadow-sm hover:shadow-lg hover:transition-transform hover:ease-linear hover:-translate-y-2">
+      <article className="transition-all ease-linear w-[43vw] sm:w-[20vw] h-full p-4 shadow-sm hover:shadow-lg hover:transition-transform hover:ease-linear hover:-translate-y-2">
         <img
           src={image}
           alt={title}
