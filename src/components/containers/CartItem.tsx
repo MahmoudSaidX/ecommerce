@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Product } from "../services/api/useAllProductsFetch";
+import { Product } from "../../services/api/useAllProductsFetch";
 import { useDispatch } from "react-redux";
 import {
   removeProductFromCart,
   updateCartItemQuantity,
-} from "../services/state/slices/productSlice";
+} from "../../services/state/slices/productSlice";
 import { useState } from "react";
-import { formatCurrency } from "../utils/formatCurrency";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 interface CartItemProps extends Product {
   id: number;

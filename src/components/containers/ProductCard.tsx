@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Product } from "../services/api/useAllProductsFetch";
+import { Product } from "../../services/api/useAllProductsFetch";
 import { useState } from "react";
-import { formatCurrency } from "../utils/formatCurrency";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 type ProductCardProps = Omit<Product, "description">;
 

@@ -3,11 +3,11 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../services/state/store";
+import { RootState } from "../../services/state/store";
 import { Link } from "react-router-dom";
-import { closetoggleCart } from "../services/state/slices/toggleCartSlice";
+import { closetoggleCart } from "../../services/state/slices/toggleCartSlice";
 import { CiBookmarkPlus } from "react-icons/ci";
-import { formatCurrency } from "../utils/formatCurrency";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const ShoppingCart = ({ open, setOpen }: any) => {
   const cart = useSelector((state: RootState) => state.product.cart);

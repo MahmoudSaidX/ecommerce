@@ -1,4 +1,4 @@
-import useImageZoom from "../hooks/useHandleZoom";
+import useImageZoom from "../../hooks/useHandleZoom";
 
 const ProductImage = ({ image, title }: { image?: string; title?: string }) => {
   const {

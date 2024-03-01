@@ -3,7 +3,7 @@ import "./index.css";
 import MainLayout from "./layouts/MainLayout";
 import AllProductsScreen from "./pages/AllProductsScreen";
 import ProductDetailsScreen from "./pages/ProductDetailsScreen";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/ui/NotFound";
 
 function App() {
   return (

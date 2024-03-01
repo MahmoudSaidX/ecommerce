@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { toggletoggleCart } from "../services/state/slices/toggleCartSlice";
-import { RootState } from "../services/state/store";
+import { toggletoggleCart } from "../../services/state/slices/toggleCartSlice";
+import { RootState } from "../../services/state/store";
 import { TbBrandSnapseed } from "react-icons/tb";
 
 const Navbar = () => {

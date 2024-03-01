@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import useAllProductsFetch, {
   Product,
-} from "../services/api/useAllProductsFetch";
+} from "../../services/api/useAllProductsFetch";
 import { useSelector } from "react-redux";
-import { RootState } from "../services/state/store";
-import Shimmer from "./Shimmer";
+import { RootState } from "../../services/state/store";
+import Shimmer from "../ui/Shimmer";
 
 const API_URL = "https://fakestoreapi.com/products";
 

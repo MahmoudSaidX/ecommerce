@@ -8,11 +8,11 @@ import { addProductToCart } from "../services/state/slices/productSlice";
 import {
   ShimmerForDetails,
   ShimmerForProductImage,
-} from "../components/Shimmer";
+} from "../components/ui/Shimmer";
 import useProductDetailsFetch from "../services/api/useProductDetailsFetch";
 import { toggletoggleCart } from "../services/state/slices/toggleCartSlice";
-import ProductDetails from "../components/ProductDetails";
-import ProductImage from "../components/ProductImage";
+import ProductDetails from "../components/containers/ProductDetails";
+import ProductImage from "../components/containers/ProductImage";
 
 const ProductDetailsScreen = () => {
   const { id } = useParams<{ id: string }>();

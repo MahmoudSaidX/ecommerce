@@ -1,7 +1,7 @@
-import Asidebar from "../components/Asidebar";
-import ProductList from "../components/ProductList";
+import Asidebar from "../components/containers/Asidebar";
+import ProductList from "../components/containers/ProductList";
 
-import ProductsHeader from "../components/ProductsHeader";
+import ProductsHeader from "../components/containers/ProductsHeader";
 
 const AllProductsScreen: React.FC = () => {
   return (

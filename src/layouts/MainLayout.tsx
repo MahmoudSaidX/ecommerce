@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/containers/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggletoggleCart } from "../services/state/slices/toggleCartSlice";
 import { RootState } from "../services/state/store";
-import ShoppingCart from "../components/ShoppingCart";
-import Footer from "../components/Footer";
+import ShoppingCart from "../components/containers/ShoppingCart";
+import Footer from "../components/ui/Footer";
 
 const MainLayout = () => {
   const { isOpen } = useSelector((state: RootState) => state.toggleCart);

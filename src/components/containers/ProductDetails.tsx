@@ -1,4 +1,4 @@
-import PaymentMethods from "./PaymentMethods";
+import PaymentMethods from "../ui/PaymentMethods";
 
 type ProductDetailsProps = {
   title?: string;

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { searchForProduct } from "../services/state/slices/productSlice";
+import { searchForProduct } from "../../services/state/slices/productSlice";
 import { ChangeEvent } from "react";
 import { BsFillGrid3X3GapFill, BsFillGridFill } from "react-icons/bs";
 
