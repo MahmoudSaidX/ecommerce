@@ -21,11 +21,13 @@ interface CartItem extends Product {
 interface ProductState {
   products: Product[];
   cart: CartItem[];
+  productSearch: string;
 }
 
 const initialState: ProductState = {
   products: [],
   cart: [],
+  productSearch: "",
 };
 
 const productSlice = createSlice({
@@ -55,6 +57,9 @@ const productSlice = createSlice({
         cartItem.quantity = quantity;
       }
     },
+    searchForProduct(state, action: PayloadAction<string>) {
+      state.productSearch = action.payload;
+    },
   },
 });
 
@@ -62,6 +67,7 @@ export const {
   addProductToCart,
   removeProductFromCart,
   updateCartItemQuantity,
+  searchForProduct,
 } = productSlice.actions;
 
 export default productSlice.reducer;

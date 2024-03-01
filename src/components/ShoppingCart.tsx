@@ -2,14 +2,23 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../services/state/store";
+import { Link } from "react-router-dom";
+import { closetoggleCart } from "../services/state/slices/toggleCartSlice";
+import { CiBookmarkPlus } from "react-icons/ci";
 
 const ShoppingCart = ({ open, setOpen }: any) => {
   const cart = useSelector((state: RootState) => state.product.cart);
   const totalPrice = cart.reduce((acc: number, item: any) => {
     return acc + item.price * item.quantity;
   }, 0);
+
+  const dispatch = useDispatch();
+
+  const handleCloseCart = () => {
+    dispatch(closetoggleCart());
+  };
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -66,6 +75,13 @@ const ShoppingCart = ({ open, setOpen }: any) => {
                             {cart.map((product) => (
                               <CartItem key={product.id} {...product} />
                             ))}
+                            <li
+                              className="flex flex-row gap-2 justify-center items-center cursor-pointer py-2 hover:text-slate-600 hover:transition-all hover:ease-in-out"
+                              onClick={handleCloseCart}
+                            >
+                              <Link to={`/`}>Add item</Link>
+                              <CiBookmarkPlus />
+                            </li>
                           </ul>
                         </div>
                       </div>

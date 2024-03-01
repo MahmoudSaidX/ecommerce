@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import axios, { AxiosResponse } from "axios";
 
 export interface Product {
@@ -15,39 +16,29 @@ interface Error {
 }
 
 interface FetchState<T> {
-  productData: T | null;
+  data: T | null;
   isLoading: boolean;
   error: Error | null;
+  fetchData: (url: string) => Promise<void>;
 }
 
-const useProductDetailsFetch = (url: string): FetchState<Product> => {
-  const [productData, setProductData] = useState<Product | null>(null);
+const useProductDetailsFetch = <T>(): FetchState<T> => {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    let mounted = true;
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const response: AxiosResponse<Product> = await axios.get(url);
-        if (mounted) {
-          setProductData(response.data);
-        }
-      } catch (error: unknown) {
-        setError({ message: error });
-      }
-      setIsLoading(false);
-    };
+  const fetchData = async (url: string) => {
+    setIsLoading(true);
+    try {
+      const response: AxiosResponse<T> = await axios.get(url);
+      setData(response.data);
+    } catch (error: unknown) {
+      setError({ message: error });
+    }
+    setIsLoading(false);
+  };
 
-    fetchData();
-
-    return () => {
-      mounted = false;
-    };
-  }, [url]);
-
-  return { productData, isLoading, error };
+  return { data, isLoading, error, fetchData };
 };
 
 export default useProductDetailsFetch;

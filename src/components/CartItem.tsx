@@ -7,20 +7,31 @@ import {
 } from "../services/state/slices/productSlice";
 import { useState } from "react";
 
-const CartItem = ({ id, title, image, price, category }: Product) => {
+interface CartItemProps extends Product {
+  id: number;
+}
+
+const CartItem: React.FC<CartItemProps> = ({
+  id,
+  title,
+  image,
+  price,
+  category,
+}) => {
   const [count, setCount] = useState<number>(1);
+  const dispatch = useDispatch();
 
   const increaseCount = () => {
     setCount((prevCount) => prevCount + 1);
+    handleQuantityChange(id, count + 1);
   };
 
   const decreaseCount = () => {
     if (count > 1) {
       setCount((prevCount) => prevCount - 1);
+      handleQuantityChange(id, count - 1);
     }
   };
-
-  const dispatch = useDispatch();
 
   const handleRemoveFromCart = (productId: number) => {
     dispatch(removeProductFromCart(productId));
@@ -52,23 +63,11 @@ const CartItem = ({ id, title, image, price, category }: Product) => {
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
           <p className="text-gray-500 flex flex-row gap-2">
-            <span
-              className="cursor-pointer"
-              onClick={() => {
-                handleQuantityChange(id, count);
-                increaseCount();
-              }}
-            >
+            <span className="cursor-pointer" onClick={increaseCount}>
               +
             </span>
             <span>{count}</span>
-            <span
-              className="cursor-pointer"
-              onClick={() => {
-                handleQuantityChange(id, count);
-                decreaseCount();
-              }}
-            >
+            <span className="cursor-pointer" onClick={decreaseCount}>
               -
             </span>
           </p>
@@ -77,7 +76,7 @@ const CartItem = ({ id, title, image, price, category }: Product) => {
             <button
               type="button"
               onClick={() => handleRemoveFromCart(id)}
-              className="font-medium text-gray-600 hover:text-gray-500"
+              className="font-medium text-gray-600 hover:text-red-500 hover:transition-all hover:ease-in-out"
             >
               Remove
             </button>
